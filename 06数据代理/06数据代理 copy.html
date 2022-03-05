@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06数据代理</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let list1 = {x:100}
+        let list2 = {y:200}
+
+        Object.defineProperty(list2,'x',{
+            get(){
+                return list1.x;
+            },
+            set(value){
+                list1.x = value;
+            }
+        })
+    </script>
+</body>
+</html>

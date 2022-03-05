@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07事件处理</title>
+</head>
+<style>
+    *{
+        margin-top:20px;
+    }
+    #test{
+        background-color:skyblue
+
+    }
+</style>
+<script src="../js/vue.js"></script>
+<body>
+    <div id="root">
+        <h1>欢迎{{name}}</h1>
+        <input type="text"placeholder='摁下回车提示输入' @keyup.huiche="showInfo">
+        <input type="text"placeholder='摁下pagedown提示输入' @keyup.page-down="showInfo">
+        <input type="text"placeholder='摁下tab提示输入' @keydown.tab="showInfo">
+        <input type="text"placeholder='摁下ctrl提示输入' @keydown.ctrl="showInfo">
+
+
+    </div>
+    <script>
+        Vue.config.keyCodes = {
+            "huiche": 13,//定义一个别名按键
+        };
+
+        const vm = new Vue({
+            el:'#root',
+            data: {
+                name:'m9n1ka'
+            },
+            methods: {
+                showInfo(event) {
+                    console.log(event.key,event.keyCode)
+                    // console.log(event.target.value)
+                    console.log(event.target.value)
+                },
+            },
+        })
+    </script>
+</body>
+</html>
