@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="../js/vue.js"></script>
+<body>
+    <div id="root">
+        <h2>a的值为:{{numbers.a}}</h2>
+        <button @click="numbers.a++">点击让a+1</button>
+        <h2>b的值为:{{numbers.b}}</h2>
+        <button @click="numbers.b++">点击让b+1</button>
+    </div>
+    <script>
+        Vue.config.productionTip = false;
+
+        const vm = new Vue({
+            el:'#root',
+            data: {
+                isHot:true,
+                numbers:{
+                    a:1,
+                    b:1
+                }
+            },
+            methods: {
+                change() {
+                    this.isHot = !this.isHot
+                },
+            },
+            computed: {
+
+                info() {
+                    return this.isHot?'炎热':'凉爽';
+                },
+            
+            },
+            watch:{
+                // 'numbers.a':{
+                //     handler(newValue,oldValue){
+                //         console.log('newValue:',newValue)
+                //         console.log('oldValue:',oldValue)
+
+                //     }
+                // }
+                numbers:{
+                    deep:true,
+                    handler(){
+                        console.log('numbers被改变了')
+                    }
+                }
+            }
+            
+        })
+    </script>
+</body>
+</html>

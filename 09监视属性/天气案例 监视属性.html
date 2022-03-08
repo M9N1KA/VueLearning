@@ -26,11 +26,34 @@
                 },
             },
             computed: {
+
                 info() {
                     return this.isHot?'炎热':'凉爽';
                 },
             
             },
+            // watch:{
+            //     info:{
+            //         immediate:true,//初始化handler使用
+            //         handler(newValue,oldValue){
+            //             console.log('newValue:',newValue)
+            //             console.log('oldValue:',oldValue)
+
+            //         }
+            //     }
+            // }
+            
+        })
+
+        
+
+        vm.$watch('info',{
+                immediate:true,//初始化handler使用
+                handler(newValue,oldValue){
+                    console.log('newValue:',newValue)
+                    console.log('oldValue:',oldValue)
+
+                }
         })
     </script>
 </body>
