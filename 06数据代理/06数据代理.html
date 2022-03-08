@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06数据代理</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let number = 18;
+        let person = {
+            name:'m9n1ka',
+            sex : '男',
+        }
+
+        Object.defineProperty(person,'age',{
+            // value:18,
+            // enumerable = true,//控制属性是否可以枚举，默认值为false
+            // writable = true,//控制属性是否可以被修改，默认为false
+            // configurable = true,//控制属性是否可以被删除，默认为false
+
+
+            //当读取person的age属性时，get(getter)函数被调用返回age的值
+            get(){
+                console.log('正在读取age属性')
+                return number;
+            },
+            //当修改person的age属性时，set(setter)函数被调用修改后的age值
+            set(value){                
+                console.log('正在修改age属性，值为'+value)
+                number = value                
+            }
+        })
+        console.log(person)
+    </script>
+</body>
+</html>
