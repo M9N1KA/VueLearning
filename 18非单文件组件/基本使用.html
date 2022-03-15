@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="../js/vue.js"></script>
+<body>
+    <div id="root">
+        <school></school>
+        <hr>
+        <student></student>
+
+    </div>
+
+    <script>
+        //创建school组件
+        const school = Vue.extend({
+            template:`
+            <div>
+                <h1>{{schoolName}}</h1>
+                <h1>{{address}}</h1>
+            </div>
+            `,
+
+            data(){
+                return {
+                    schoolName:'HZNU',
+                    address:'余杭塘路8318号'
+                }
+            }
+        })
+
+        //创建student组件
+        const student = Vue.extend({
+            template:`
+            <div>
+                <h1>{{studentName}}</h1>
+                <h1>{{age}}</h1>
+            </div>
+            `,
+            data(){
+                return{
+                    studentName:'ftr',
+                    age:'22'
+                }
+            }
+        })
+
+        const vm = new Vue({
+           el:'#root',
+           //第二步：注册组件
+           components:{
+               school:school,
+               student:student
+           }
+        })
+    </script>
+</body>
+</html>
